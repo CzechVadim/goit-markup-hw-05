@@ -687,6 +687,52 @@ body {
   margin-bottom: 0px;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.job .thumb {
+  position: relative; /* превращает thumb в точку отсчета для позиционирования actions */
+  height: 300px;
+  overflow: hidden; /* скрывает оверлей в thumb */
+}
+
+.job img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actions {
+  position: absolute; /* позиционирует оверлей относительно родительского блока thumb */
+  bottom: 0; /* начальная позицыя для оверлей - нижний угол относительно thumb */
+  left: 0; /* начальная позицыя для оверлей - левый угол относительно thumb */
+  transform: translatey(100%); /* опускает оверлей по вертикали на всю высоту вниз thumb */
+  width: 100%; /* оверлей занимает 100% ширины thumb */
+  height: 300px; /* высота оверлея */
+  background-color: var(--overlay-collor); /* прозрачный фон для оверлей */
+  transition: transform 250ms var(--timing); /* скорость перехода между двумя состояниями */
+}
+
+.job-list a:hover .actions {
+  transform: translatey(0); /* при ховере на ссылку поднимает оверлей по вертикали на всю высоту thumb */
+}
+
+.actions-description {
+  margin-left: 24px;
+  margin-top: 63px;
+  margin-right: 24px;
+  margin-bottom: 63px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  color: var(--white-text);
+}
+
 .job-name {
   margin-top: 20px;
   margin-bottom: 4px;
@@ -709,4 +755,33 @@ body {
   line-height: 30px;
   letter-spacing: 0.03em;
   color: var(--gray-text);
+}
+
+/* --- BACKDROP --- */
+
+.backdrop {
+  position: fixed; /* backdrop при прокрутке страницы остается на своем месте и не прокручивается вместе со страницей */
+  top: 0; /* начальная позицыя для backdrop верхний угол относительно вьюпорта */
+  left: 0; /* начальная позицыя для backdrop левый угол относительно вьюпорта */
+  width: 100%; /* backdrop занимает 100% ширины вьюпорта */
+  height: 100%; /* backdrop занимает 100% высоты вьюпорта */
+  background-color: var(--bg-backdrop-collor); /* прозрачный фон для backdrop */
+}
+
+.backdrop.is-hidden {
+  opacity: 0; /* делает прозрачным backdrop */
+  pointer-events: none; /* помогает при скрытом backdrop чтобы он через себя пропускал все клики и другие события */
+}
+
+
+/* --- MODAL --- */
+
+.modal {
+  position: absolute; /* позиционирует модальное окно относительно родительского блока backdrop */
+  top: 50%; /* ставит модальное окно на 50% высоты вьюпорта */
+  left: 50%; /* ставит модальное окно на 50% ширины вьюпорта */
+  transform: translate(-50%, -50%); /* горизонтальное и вертикальное центрирование модального окна относительно вьюпорта */
+  width: 530px; /* ширина модального окна */
+  height: 580px; /* высота модального окна */
+  background-color: var(--bg-white-color); /* фон модального окна */
 }
