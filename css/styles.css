@@ -1,8 +1,16 @@
-/* --- ОБЩИЕ СТИЛИ ДЛЯ ВСЕГО ДОКУМЕНТА --- */
-
 body {
   font-family: 'Roboto', sans-serif; /* основной шрифт для всего документа и ссылок */
 }
+
+
+/* --- ОБЩМЕ СИЛИ ДЛЯ ВСЕХ ИЗОБРАЖЕНИЙ --- */
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 
 /* --- HEADER --- */
 
@@ -86,6 +94,7 @@ body {
   display: block; /* превращает подчёркивание ссылки в блочный элемент */
   width: 100%; /* растягивает подчёркивание ссылки на всю ширину родительского блока */
   height: 4px; /* высота подчёркивания ссылки */
+  border-radius: 2px;
   background-color: var(--bg-blue-color); /* цвет подчёркивания ссылки */
   transform: scaleX(0); /* масштабирует подчёркивание ссылки по горизонтали (подчёркивание ссылки ужимается в центр) */
   transition: transform 250ms var(--timing); /* скорость перехода между двумя состояниями */
@@ -179,8 +188,9 @@ body {
 }
 
 .button-primary {
-  background-color: var(--bg-blue-color);
   display: inline-block;
+  background-color: var(--bg-blue-color);
+  border: 0px;
   border-radius: 4px;
   padding-left: 32px; 
   padding-top: 10px;
@@ -194,6 +204,41 @@ body {
   text-align: center;
   line-height: 30px;
   letter-spacing: 0.06em;
+}
+
+
+/* --- MODAL --- */
+
+.modal {
+  position: absolute; /* позиционирует модальное окно относительно родительского блока backdrop */
+  top: 50%; /* ставит модальное окно на 50% высоты вьюпорта */
+  left: 50%; /* ставит модальное окно на 50% ширины вьюпорта */
+  transform: translate(-50%, -50%); /* горизонтальное и вертикальное центрирование модального окна относительно вьюпорта */
+  width: 530px; /* ширина модального окна */
+  height: 580px; /* высота модального окна */
+  background-color: var(--bg-white-color); /* фон модального окна */
+  padding: 8px;
+}
+
+
+/* --- MODAL CLOSE BUTTON --- */
+
+.close-button {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  align-items: center;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-icon-collor);
+  background-color: var(--bg-white-color);
+}
+
+.close-icon {
+  width: 11px;
+  height: 11px;
+  fill: currentColor;
 }
 
 
@@ -333,6 +378,37 @@ body {
 .services-list {
   display: flex;
   justify-content: space-between; 
+}
+
+.service-thumb {
+  position: relative;
+  height: 300px;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.services-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 0px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  line-height: 16px;
+  letter-spacing: 0.03em;
+  color: var(--white-text);
+  background-color: var(--bg-service-collor);
 }
 
 
@@ -482,6 +558,154 @@ body {
 }
 
 
+/* JOB button*/
+
+.portfolio-container {
+  width: 1230px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 94px;
+  padding-bottom: 94px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-list {
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.buttons-list:last-child {
+  margin-right: 0px;
+}
+
+.job-btn {
+  background-color: var(--bg-light-gray-color);
+  border: 0px;
+  border-radius: 4px;
+  padding-left: 22px;
+  padding-top: 6px;
+  padding-right: 22px;
+  padding-bottom: 6px;
+  min-width: 73px;
+  color: var(--black-tex);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 50px;
+}
+
+.job-btn:hover,
+.job-btn:focus,
+.job-btn:active {
+  background-color: var(--bg-blue-color);
+  color: var(--white-text);
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+/* JOB */
+
+.job {
+  background-color: var(--bg-white-color);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.job-list {
+  width: calc((100% - 60px) / 3);
+  margin-right: 30px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  border: 1px solid var(--bg-light-white-collor);
+}
+
+.job-list:hover, .job-list:focus {
+  color: var(--bg-blue-color);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.job-list:nth-child(3n) {
+  margin-right: 0px;
+}
+
+.job-list:nth-last-child(-n + 3) {
+  margin-bottom: 0px;
+}
+
+.job .thumb {
+  position: relative; /* превращает thumb в точку отсчета для позиционирования actions */
+  height: 300px;
+  overflow: hidden; /* скрывает оверлей в thumb */
+}
+
+.job .img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actions {
+  position: absolute; /* позиционирует оверлей относительно родительского блока thumb */
+  bottom: 0; /* начальная позицыя для оверлей - нижний угол относительно thumb */
+  left: 0; /* начальная позицыя для оверлей - левый угол относительно thumb */
+  transform: translatey(100%); /* опускает оверлей по вертикали на всю высоту вниз thumb */
+  width: 100%; /* оверлей занимает 100% ширины thumb */
+  height: 300px; /* высота оверлея */
+  background-color: var(--overlay-collor); /* прозрачный фон для оверлей */
+  transition: transform 250ms var(--timing); /* скорость перехода между двумя состояниями */
+}
+
+.job-list a:hover .actions {
+  transform: translatey(0); /* при ховере на ссылку поднимает оверлей по вертикали на всю высоту thumb */
+}
+
+.actions-description {
+  margin-left: 24px;
+  margin-top: 63px;
+  margin-right: 24px;
+  margin-bottom: 63px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.03em;
+  color: var(--white-text);
+}
+
+.job-name {
+  margin-top: 20px;
+  margin-bottom: 4px;
+  margin-left: 24px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 36px;
+  letter-spacing: 0.06em;
+  color: var(--black-text);
+}
+
+.job-type {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-left: 24px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 30px;
+  letter-spacing: 0.03em;
+  color: var(--gray-text);
+}
+
+
 /* FOOTER */
 
 .footer {
@@ -603,159 +827,6 @@ body {
   fill: currentColor;
 }
 
-/* --- СТИЛИ ДЛЯ СТРАНИЦЫ ПОРТФОЛИО --- */
-
-/* JOB button*/
-
-.portfolio-container {
-  width: 1230px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 94px;
-  padding-bottom: 94px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.buttons-list {
-  display: inline-block;
-  margin-right: 8px;
-}
-
-.buttons-list:last-child {
-  margin-right: 0px;
-}
-
-.job-btn {
-  background-color: var(--bg-light-gray-color);
-  border: 0px;
-  border-radius: 4px;
-  padding-left: 22px;
-  padding-top: 6px;
-  padding-right: 22px;
-  padding-bottom: 6px;
-  min-width: 73px;
-  color: var(--black-tex);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  text-align: center;
-  letter-spacing: 0.03em;
-  margin-bottom: 50px;
-}
-
-.job-btn:hover,
-.job-btn:focus,
-.job-btn:active {
-  background-color: var(--bg-blue-color);
-  color: var(--white-text);
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
-}
-
-/* JOB */
-
-.job {
-  background-color: var(--bg-white-color);
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.job-list {
-  width: calc((100% - 60px) / 3);
-  margin-right: 30px;
-  margin-bottom: 30px;
-  box-sizing: border-box;
-  border: 1px solid var(--bg-light-white-collor);
-}
-
-.job-list:hover, .job-list:focus {
-  color: var(--bg-blue-color);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}
-
-.job-list:nth-child(3n) {
-  margin-right: 0px;
-}
-
-.job-list:nth-last-child(-n + 3) {
-  margin-bottom: 0px;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.job .thumb {
-  position: relative; /* превращает thumb в точку отсчета для позиционирования actions */
-  height: 300px;
-  overflow: hidden; /* скрывает оверлей в thumb */
-}
-
-.job img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.actions {
-  position: absolute; /* позиционирует оверлей относительно родительского блока thumb */
-  bottom: 0; /* начальная позицыя для оверлей - нижний угол относительно thumb */
-  left: 0; /* начальная позицыя для оверлей - левый угол относительно thumb */
-  transform: translatey(100%); /* опускает оверлей по вертикали на всю высоту вниз thumb */
-  width: 100%; /* оверлей занимает 100% ширины thumb */
-  height: 300px; /* высота оверлея */
-  background-color: var(--overlay-collor); /* прозрачный фон для оверлей */
-  transition: transform 250ms var(--timing); /* скорость перехода между двумя состояниями */
-}
-
-.job-list a:hover .actions {
-  transform: translatey(0); /* при ховере на ссылку поднимает оверлей по вертикали на всю высоту thumb */
-}
-
-.actions-description {
-  margin-left: 24px;
-  margin-top: 63px;
-  margin-right: 24px;
-  margin-bottom: 63px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0.03em;
-  color: var(--white-text);
-}
-
-.job-name {
-  margin-top: 20px;
-  margin-bottom: 4px;
-  margin-left: 24px;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 36px;
-  letter-spacing: 0.06em;
-  color: var(--black-text);
-}
-
-.job-type {
-  margin-top: 0px;
-  margin-bottom: 20px;
-  margin-left: 24px;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 30px;
-  letter-spacing: 0.03em;
-  color: var(--gray-text);
-}
 
 /* --- BACKDROP --- */
 
@@ -771,17 +842,4 @@ img {
 .backdrop.is-hidden {
   opacity: 0; /* делает прозрачным backdrop */
   pointer-events: none; /* помогает при скрытом backdrop чтобы он через себя пропускал все клики и другие события */
-}
-
-
-/* --- MODAL --- */
-
-.modal {
-  position: absolute; /* позиционирует модальное окно относительно родительского блока backdrop */
-  top: 50%; /* ставит модальное окно на 50% высоты вьюпорта */
-  left: 50%; /* ставит модальное окно на 50% ширины вьюпорта */
-  transform: translate(-50%, -50%); /* горизонтальное и вертикальное центрирование модального окна относительно вьюпорта */
-  width: 530px; /* ширина модального окна */
-  height: 580px; /* высота модального окна */
-  background-color: var(--bg-white-color); /* фон модального окна */
 }

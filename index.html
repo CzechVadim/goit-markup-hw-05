@@ -92,7 +92,6 @@
                 <!-- Ссылка на заказ услуг -->
                 <button class="button-primary" data-modal-open>Заказать услугу</button>
 
-                    
             </div>
            
         </section>
@@ -186,21 +185,33 @@
                 <ul class="services-list">    
                     <li class="services-item">
                         <a href="">
-                            <img src="./images/image-1.jpg" alt="Услуга 1" width="370"/>
+                            <div class="service-thumb">
+                                <img class="service-img" src="./images/image-1.jpg" alt="Услуга 1"/>
+                                
+                                <p class="services-description">ДЕСКТОПНЫЕ ПРИЛОЖЕНИЯ</p>
+                            </div>
                         </a>
                     </li>
     
                     
                     <li class="services-item">
                         <a href="">
-                            <img src="./images/image-2.jpg" alt="Услуга 2" width="370"/>
+                            <div class="service-thumb">
+                                <img class="service-img" src="./images/image-2.jpg" alt="Услуга 2"/>
+                            
+                                <p class="services-description">МОБИЛЬНЫЕ ПРИЛОЖЕНИЯ</p>
+                            </div>
                         </a>
                     </li>
     
     
                     <li class="services-item">
                         <a href="">
-                            <img src="./images/image-3.jpg" alt="Услуга 3" width="370"/>
+                            <div class="service-thumb">
+                                <img class="service-img" src="./images/image-3.jpg" alt="Услуга 3"/>
+
+                                <p class="services-description">ДИЗАЙНЕРСКИЕ ПРИЛОЖЕНИЯ</p>
+                            </div>
                         </a>
                     </li>    
                 </ul>
@@ -550,14 +561,22 @@
     </footer>
     
 
-    <button data-modal-open>Заказать услугу</button>
-    
+    <!-- Модальное окно -->
     <div class="backdrop is-hidden" data-modal>
+        
         <div class="modal">
-            <button data-modal-close>Закрыть</button>
+            
+            <button class="close-button" data-modal-close>
+                <svg class="close-icon">
+                    <use href="./images/icons.svg#icon-close"></use>
+                </svg>  
+            </button>
+
         </div>
+
     </div>
 
+    <!-- Файл скрипта для модального окна -->
     <script src="./js/modal.js"></script>
 
 </body>
